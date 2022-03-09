@@ -320,52 +320,65 @@ export default function Home() {
                 : activeTab == "past"
                 ? pastRides
                 : []
-              )?.map((ride, key) => {
-                return (
-                  <div
-                    key={key}
-                    className="grid md:grid-cols-4 bg-[#171717] px-6 py-9 md:py-7 rounded-xl mb-4 relative"
-                  >
-                    <div className="col-span-1">
-                      <img
-                        src={ride.map_url}
-                        alt="map_url"
-                        className="mb-3 md:mb-0 h-36 w-96 md:w-72 object-cover"
-                      />
-                    </div>
-                    <div className="col-span-3 ml-5">
-                      <p className="text-[#CFCFCF]">
-                        Ride Id : <span className="text-white">{ride.id}</span>
-                      </p>
-                      <p className="text-[#CFCFCF]">
-                        Origin Station :{" "}
-                        <span className="text-white">{ride.origin_station_code}</span>
-                      </p>
-                      <p className="text-[#CFCFCF]">
-                        station_path :{" "}
-                        <span className="text-white">{`[${String(ride.station_path)}]`}</span>
-                      </p>
-                      <p className="text-[#CFCFCF]">
-                        Date :{" "}
-                        <span className="text-white">
-                          {moment(new Date(ride.date)).format("Do MMMM YYYY HH:mm")}
-                        </span>
-                      </p>
-                      <p className="text-[#CFCFCF]">
-                        Distance : <span className="text-white">{ride.distance}</span>
-                      </p>
-                    </div>
-                    <div className="flex text-white space-x-3 w-max absolute left-3 md:left-auto md:right-0 -top-5 md:top-0 text-xs pr-7 pt-6">
-                      <div className="bg-[#000000] rounded-3xl py-1 px-2">
-                        <p>{ride.city}</p>
+              ).length > 0 ? (
+                (activeTab == "nearest"
+                  ? nearestRides
+                  : activeTab == "upcoming"
+                  ? upcomingRides
+                  : activeTab == "past"
+                  ? pastRides
+                  : []
+                )?.map((ride, key) => {
+                  return (
+                    <div
+                      key={key}
+                      className="grid md:grid-cols-4 bg-[#171717] px-6 py-9 md:py-7 rounded-xl mb-4 relative"
+                    >
+                      <div className="col-span-1">
+                        <img
+                          src={ride.map_url}
+                          alt="map_url"
+                          className="mb-3 md:mb-0 h-36 w-96 md:w-72 object-cover"
+                        />
                       </div>
-                      <div className="bg-[#000000] rounded-3xl py-1 px-2">
-                        <p>{ride.state}</p>
+                      <div className="col-span-3 ml-5">
+                        <p className="text-[#CFCFCF]">
+                          Ride Id : <span className="text-white">{ride.id}</span>
+                        </p>
+                        <p className="text-[#CFCFCF]">
+                          Origin Station :{" "}
+                          <span className="text-white">{ride.origin_station_code}</span>
+                        </p>
+                        <p className="text-[#CFCFCF]">
+                          station_path :{" "}
+                          <span className="text-white">{`[${String(ride.station_path)}]`}</span>
+                        </p>
+                        <p className="text-[#CFCFCF]">
+                          Date :{" "}
+                          <span className="text-white">
+                            {moment(new Date(ride.date)).format("Do MMMM YYYY HH:mm")}
+                          </span>
+                        </p>
+                        <p className="text-[#CFCFCF]">
+                          Distance : <span className="text-white">{ride.distance}</span>
+                        </p>
+                      </div>
+                      <div className="flex text-white space-x-3 w-max absolute left-3 md:left-auto md:right-0 -top-5 md:top-0 text-xs pr-7 pt-6">
+                        <div className="bg-[#000000] rounded-3xl py-1 px-2">
+                          <p>{ride.city}</p>
+                        </div>
+                        <div className="bg-[#000000] rounded-3xl py-1 px-2">
+                          <p>{ride.state}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })
+              ) : (
+                <div className="w-1/3 m-auto py-64 md:py-80 font-bold text-4xl text-center text-white">
+                  No rides to display
+                </div>
+              )}
             </div>
           )}
         </div>

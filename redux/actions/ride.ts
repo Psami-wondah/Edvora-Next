@@ -16,8 +16,8 @@ export const getRides = createAsyncThunk("get/rides", async ({}, thunkAPI) => {
       !cities.includes(ride.city) ? cities.push(ride.city) : "";
       !states.includes(ride.state) ? states.push(ride.state) : "";
     });
-    thunkAPI.dispatch(setCities(cities));
-    thunkAPI.dispatch(setStates(states));
+    thunkAPI.dispatch(setCities(cities.sort()));
+    thunkAPI.dispatch(setStates(states.sort()));
     return {
       status: true,
       message: "Rides Fetched Succesfully",
