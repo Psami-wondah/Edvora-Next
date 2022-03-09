@@ -181,9 +181,7 @@ export default function Home() {
               },
             }}
           >
-            <InputLabel id="select-2" className="text-white">
-              State
-            </InputLabel>
+            <InputLabel id="select-2">State</InputLabel>
             <Select
               labelId="select-2"
               id="select-2-filled"
@@ -226,11 +224,11 @@ export default function Home() {
               },
             }}
           >
-            <InputLabel id="demo-simple-select-filled-label" className="text-white">
+            <InputLabel id="select-2" className="text-white">
               Cities
             </InputLabel>
             <Select
-              labelId="demo-simple-select-filled-label"
+              labelId="select-2"
               id="select-2-filled"
               value={city}
               label="Age"

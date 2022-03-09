@@ -24,6 +24,9 @@ a {
 #select-2-filled {
   color: white;
 }
+#select-2 {
+  color: white;
+}
 
 .MuiMenu-list .Mui-selected {
   color: #232323;
