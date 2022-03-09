@@ -11,6 +11,11 @@ import { Ride, User, PayLoad } from "../types/ride";
 import { FormControl, InputLabel, MenuItem, Popover, Select } from "@mui/material";
 import { SelectChangeEvent } from "@mui/material/Select";
 
+interface Theme {
+  selected: {
+    color: string;
+  };
+}
 export default function Home() {
   const dispatch = useAppThunkDispatch();
   const { rides, user, isLoading, states, cities } = useAppSelector((state) => state.ride);
@@ -185,7 +190,6 @@ export default function Home() {
               value={state}
               label="Age"
               onChange={handleStateChange}
-              className="text-white "
             >
               <MenuItem value="">
                 <em>None</em>
@@ -193,6 +197,7 @@ export default function Home() {
               {states?.map((item, key) => {
                 return (
                   <MenuItem
+                    id="menu-item"
                     value={item}
                     key={key}
                     className="bg-[#232323]"
@@ -226,11 +231,10 @@ export default function Home() {
             </InputLabel>
             <Select
               labelId="demo-simple-select-filled-label"
-              id="demo-simple-select-filled"
+              id="select-2-filled"
               value={city}
               label="Age"
               onChange={handleCityChange}
-              className="text-white"
             >
               <MenuItem value="">
                 <em>None</em>
@@ -238,6 +242,7 @@ export default function Home() {
               {cities?.map((item, key) => {
                 return (
                   <MenuItem
+                    id="menu-item"
                     value={item}
                     key={key}
                     className="bg-[#232323]"

@@ -21,9 +21,10 @@ a {
   box-sizing: border-box;
 }
 
-.css-8444up-MuiButtonBase-root-MuiMenuItem-root.Mui-selected {
-  color: #232323;
+#select-2-filled {
+  color: white;
 }
-.css-6hp17o-MuiList-root-MuiMenu-list {
+
+.MuiMenu-list .Mui-selected {
   color: #232323;
 }
